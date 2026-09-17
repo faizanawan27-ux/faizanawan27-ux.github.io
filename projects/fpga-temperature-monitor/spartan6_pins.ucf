@@ -1,0 +1,40 @@
+# ============================================================================
+# Spartan-6 XC6SLX9 FPGA User Constraints File (UCF)
+# Project: FPGA Real-Time Temperature Monitor
+# Author:  Faizan (22PWCSE2134) - UET Peshawar
+# ============================================================================
+
+# 50 MHz Master Clock
+NET "clk" LOC = P56 | IOSTANDARD = LVCMOS33;
+NET "clk" TNM_NET = sys_clk_pin;
+TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 50000 kHz HIGH 50%;
+
+# Reset Button
+NET "reset" LOC = P38 | IOSTANDARD = LVCMOS33 | PULLDOWN;
+
+# MCP3008 SPI Interface Pins
+NET "cs_n"  LOC = P120 | IOSTANDARD = LVCMOS33 | SLEW = FAST;
+NET "sclk"  LOC = P121 | IOSTANDARD = LVCMOS33 | SLEW = FAST;
+NET "mosi"  LOC = P123 | IOSTANDARD = LVCMOS33 | SLEW = FAST;
+NET "miso"  LOC = P124 | IOSTANDARD = LVCMOS33 | PULLUP;
+
+# Alert LED & Buzzer Outputs
+NET "warn_led"  LOC = P131 | IOSTANDARD = LVCMOS33 | DRIVE = 8;
+NET "alarm_led" LOC = P132 | IOSTANDARD = LVCMOS33 | DRIVE = 8;
+NET "buzzer"    LOC = P133 | IOSTANDARD = LVCMOS33 | DRIVE = 8;
+
+# 4-Digit 7-Segment Anode Selects (Active Low)
+NET "seg_anode<0>" LOC = P126 | IOSTANDARD = LVCMOS33;
+NET "seg_anode<1>" LOC = P127 | IOSTANDARD = LVCMOS33;
+NET "seg_anode<2>" LOC = P128 | IOSTANDARD = LVCMOS33;
+NET "seg_anode<3>" LOC = P129 | IOSTANDARD = LVCMOS33;
+
+# 7-Segment Cathodes (Active Low)
+NET "seg_cathode<0>" LOC = P114 | IOSTANDARD = LVCMOS33; # Segment A
+NET "seg_cathode<1>" LOC = P115 | IOSTANDARD = LVCMOS33; # Segment B
+NET "seg_cathode<2>" LOC = P116 | IOSTANDARD = LVCMOS33; # Segment C
+NET "seg_cathode<3>" LOC = P117 | IOSTANDARD = LVCMOS33; # Segment D
+NET "seg_cathode<4>" LOC = P118 | IOSTANDARD = LVCMOS33; # Segment E
+NET "seg_cathode<5>" LOC = P119 | IOSTANDARD = LVCMOS33; # Segment F
+NET "seg_cathode<6>" LOC = P122 | IOSTANDARD = LVCMOS33; # Segment G
+NET "seg_cathode<7>" LOC = P125 | IOSTANDARD = LVCMOS33; # Decimal Point

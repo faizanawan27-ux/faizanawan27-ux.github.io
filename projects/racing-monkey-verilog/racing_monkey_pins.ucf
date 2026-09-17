@@ -1,0 +1,38 @@
+# ============================================================================
+# Spartan-6 XC6SLX9 FPGA User Constraints File (UCF)
+# Project: Racing Monkey Hardware Arcade Game
+# Author:  Faizan (22PWCSE2134) - UET Peshawar
+# ============================================================================
+
+# 50 MHz Master Clock input
+NET "clk_50MHz" LOC = P56 | IOSTANDARD = LVCMOS33;
+NET "clk_50MHz" TNM_NET = sys_clk_pin;
+TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 50000 kHz HIGH 50%;
+
+# Push Buttons (Active High)
+NET "reset"     LOC = P38 | IOSTANDARD = LVCMOS33 | PULLDOWN;
+NET "btn_start" LOC = P39 | IOSTANDARD = LVCMOS33 | PULLDOWN;
+NET "btn_jump"  LOC = P40 | IOSTANDARD = LVCMOS33 | PULLDOWN;
+NET "btn_duck"  LOC = P41 | IOSTANDARD = LVCMOS33 | PULLDOWN;
+
+# VGA Sync Signals
+NET "vga_hsync" LOC = P117 | IOSTANDARD = LVCMOS33 | SLEW = FAST;
+NET "vga_vsync" LOC = P116 | IOSTANDARD = LVCMOS33 | SLEW = FAST;
+
+# VGA 4-bit Red Channel
+NET "vga_red<0>" LOC = P121 | IOSTANDARD = LVCMOS33;
+NET "vga_red<1>" LOC = P120 | IOSTANDARD = LVCMOS33;
+NET "vga_red<2>" LOC = P119 | IOSTANDARD = LVCMOS33;
+NET "vga_red<3>" LOC = P118 | IOSTANDARD = LVCMOS33;
+
+# VGA 4-bit Green Channel
+NET "vga_green<0>" LOC = P127 | IOSTANDARD = LVCMOS33;
+NET "vga_green<1>" LOC = P126 | IOSTANDARD = LVCMOS33;
+NET "vga_green<2>" LOC = P124 | IOSTANDARD = LVCMOS33;
+NET "vga_green<3>" LOC = P123 | IOSTANDARD = LVCMOS33;
+
+# VGA 4-bit Blue Channel
+NET "vga_blue<0>" LOC = P133 | IOSTANDARD = LVCMOS33;
+NET "vga_blue<1>" LOC = P132 | IOSTANDARD = LVCMOS33;
+NET "vga_blue<2>" LOC = P131 | IOSTANDARD = LVCMOS33;
+NET "vga_blue<3>" LOC = P128 | IOSTANDARD = LVCMOS33;
